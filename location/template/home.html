@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Studypaq</title>
+    <script src= "https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"> </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js"></script>  
+    <link href=  "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" rel="stylesheet" type="text/css" />  
+</head>
+<body>
+    <h1>Welcome to Studypaq</h1>
+    <input type="text" id="location">
+    <script>
+  $( function() {
+    var availableLocation = [
+        {% for location in locations %}
+            "{{location.location_name}}",
+        {% endfor %}
+    ];
+    $( "#location" ).autocomplete({
+      source: availableLocation
+    });
+  } );
+  </script>
+</body>
+</html>
